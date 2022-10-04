@@ -13,7 +13,8 @@ dotenv.config();
 app.get('/time-format', async (req: Request, res: Response) => {
     console.log("new time:", new Date())
     const date = new Date();
-
+    console.log("to string", date.toString());
+    console.log("current time", date.toString().substring(0, date.toString().indexOf('.')))
     return res.status(200).json({"current_time": date.toString().substring(0, date.toString().indexOf('.'))});
 });
 
