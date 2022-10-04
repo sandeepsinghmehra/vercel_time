@@ -12,7 +12,9 @@ dotenv.config();
 
 app.get('/time-format', async (req: Request, res: Response) => {
     console.log("new time:", new Date())
-    return res.status(200).json({"current_time": new Date()});
+    const date = new Date();
+
+    return res.status(200).json({"current_time": date.toLocaleString().substring(0, date.toLocaleString().indexOf('.'))});
 });
 
 module.exports = app;
